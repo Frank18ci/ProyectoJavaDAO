@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface IWorkerDao {
     List<Worker> getAllWorkers();
+    Worker getWorkerById(Integer id);
+    void addWorker(Worker worker);
+    void updateWorker(Worker worker);
+    void deleteWorker(Integer id);
 }

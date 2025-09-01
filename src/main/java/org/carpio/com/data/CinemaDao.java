@@ -55,11 +55,31 @@ public class CinemaDao implements ICinemaDao{
 
     @Override
     public void updateCinema(Cinema cinema) {
-
+        final String sql = "UPDATE cinema SET name = ?, direction = ? WHERE idCinema = ?";
+        final Connection connection = ConnectionToSql.getConnection();
+        PreparedStatement preparedStatement;
+        try{
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, cinema.getName());
+            preparedStatement.setString(2, cinema.getDirection());
+            preparedStatement.setInt(3, cinema.getIdCinema());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void deleteCinema(Integer id) {
-
+        final String sql = "DELETE FROM cinema WHERE idCinema = ?";
+        final Connection connection = ConnectionToSql.getConnection();
+        PreparedStatement preparedStatement;
+        try{
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
