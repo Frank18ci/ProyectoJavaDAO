@@ -65,15 +65,16 @@ public class SuscriptorDao implements ISuscriptorDao{
 
     @Override
     public void addSuscriptor(Suscriptor suscriptor) {
-        final String sql = "INSERT INTO suscriptors(name, number, isActive, idCinema) VALUES(?, ?, ?, ?)";
+        final String sql = "INSERT INTO suscriptors(name, lastname, number, isActive, idCinema) VALUES(?, ?, ?, ?)";
         final Connection connection = ConnectionToSql.getConnection();
         PreparedStatement preparedStatement;
         try{
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, suscriptor.getName());
-            preparedStatement.setString(2, suscriptor.getNumber());
-            preparedStatement.setBoolean(3, suscriptor.getIsActive());
-            preparedStatement.setInt(4, suscriptor.getIdCinema());
+            preparedStatement.setString(2, suscriptor.getLastname());
+            preparedStatement.setString(3, suscriptor.getNumber());
+            preparedStatement.setBoolean(4, suscriptor.getIsActive());
+            preparedStatement.setInt(5, suscriptor.getIdCinema());
             preparedStatement.execute();
         } catch (SQLException e){
             throw new RuntimeException(e);
@@ -82,16 +83,17 @@ public class SuscriptorDao implements ISuscriptorDao{
 
     @Override
     public void updateSuscriptor(Suscriptor suscriptor) {
-        final String sql = "UPDATE suscriptors SET name = ?, number = ?, isActive = ?, idCinema = ? WHERE idSuscriptor = ?";
+        final String sql = "UPDATE suscriptors SET name = ?, lastname = ?, number = ?, isActive = ?, idCinema = ? WHERE idSuscriptor = ?";
         final Connection connection = ConnectionToSql.getConnection();
         PreparedStatement preparedStatement;
         try{
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, suscriptor.getName());
-            preparedStatement.setString(2, suscriptor.getNumber());
-            preparedStatement.setBoolean(3, suscriptor.getIsActive());
-            preparedStatement.setInt(4, suscriptor.getIdCinema());
-            preparedStatement.setInt(5, suscriptor.getIdSuscriptor());
+            preparedStatement.setString(2, suscriptor.getLastname());
+            preparedStatement.setString(3, suscriptor.getNumber());
+            preparedStatement.setBoolean(4, suscriptor.getIsActive());
+            preparedStatement.setInt(5, suscriptor.getIdCinema());
+            preparedStatement.setInt(6, suscriptor.getIdSuscriptor());
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
