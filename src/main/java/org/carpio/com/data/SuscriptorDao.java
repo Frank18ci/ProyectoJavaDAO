@@ -25,6 +25,7 @@ public class SuscriptorDao implements ISuscriptorDao{
                 Suscriptor suscriptor = new Suscriptor();
                 suscriptor.setIdSuscriptor(resultSet.getInt("idSuscriptor"));
                 suscriptor.setName(resultSet.getString("name"));
+                suscriptor.setLastname(resultSet.getString("lastname"));
                 suscriptor.setNumber(resultSet.getString("number"));
                 suscriptor.setIsActive(resultSet.getBoolean("isActive"));
                 suscriptor.setIdCinema(resultSet.getInt("idCinema"));
@@ -51,6 +52,7 @@ public class SuscriptorDao implements ISuscriptorDao{
                 suscriptor = new Suscriptor();
                 suscriptor.setIdSuscriptor(resultSet.getInt("idSuscriptor"));
                 suscriptor.setName(resultSet.getString("name"));
+                suscriptor.setLastname(resultSet.getString("lastname"));
                 suscriptor.setNumber(resultSet.getString("number"));
                 suscriptor.setIsActive(resultSet.getBoolean("isActive"));
                 suscriptor.setIdCinema(resultSet.getInt("idCinema"));

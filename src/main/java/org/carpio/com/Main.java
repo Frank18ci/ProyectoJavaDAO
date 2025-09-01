@@ -15,18 +15,22 @@ public class Main {
         CinemaDao cinemaDao = new CinemaDao();
         System.out.println("Lista de cines");
         cinemaDao.getAllCinemas().forEach(System.out::println);
+        System.out.println("---------------------");
         SuscriptorDao suscriptorDao = new SuscriptorDao();
         System.out.println("Lista de suscriptores");
         suscriptorDao.getAllSuscriptors().forEach(System.out::println);
+        System.out.println("---------------------");
         WorkerDao workerDao = new WorkerDao();
         System.out.println("Lista de trabajadores");
         workerDao.getAllWorkers().forEach(System.out::println);
-
+        System.out.println("---------------------");
         Cinema cinema = new Cinema();
         cinema.setDirection("Av Siempre Viva 123");
         cinema.setName("Cinepolis");
-        cinemaDao.addCinema(cinema);
+        // Comented to avoid duplicate entries
+        //cinemaDao.addCinema(cinema);
+        //cinemaDao.deleteCinema(5);
 
-        cinemaDao.getAllCinemas().forEach(System.out::println);
+        //cinemaDao.getAllCinemas().forEach(System.out::println);
     }
 }

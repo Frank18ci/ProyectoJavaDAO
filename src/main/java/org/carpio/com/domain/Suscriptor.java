@@ -10,7 +10,7 @@ import lombok.*;
 public class Suscriptor {
     private Integer idSuscriptor;
     private String name;
-    private String lastName;
+    private String lastname;
     private String number;
     private Boolean isActive;
     private Integer idCinema;
